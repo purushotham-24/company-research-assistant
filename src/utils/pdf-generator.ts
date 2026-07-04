@@ -24,7 +24,6 @@ export function generateCompanyPDF(report: CompanyReport): ExtendedjsPDF {
   const primaryDark: [number, number, number] = [15, 23, 42];
   const goldAccent: [number, number, number] = [226, 168, 45];
   const textDark: [number, number, number] = [51, 65, 85];
-  const bgLight: [number, number, number] = [248, 250, 252]; // Slate 50
 
   // 1. Header Banner (Dark Theme)
   doc.setFillColor(primaryDark[0], primaryDark[1], primaryDark[2]);
@@ -90,14 +89,19 @@ export function generateCompanyPDF(report: CompanyReport): ExtendedjsPDF {
     margin: { left: margin, right: margin },
     theme: 'plain',
     styles: {
-      fontSize: 9,
-      cellPadding: 2.5,
-      textColor: textDark,
-    },
+  fontSize: 9,
+  cellPadding: 2.5,
+  textColor: [51, 65, 85] as [number, number, number],
+},
     columnStyles: {
-      0: { fontStyle: 'bold', width: 35, textColor: primaryDark },
-      1: { width: pageWidth - 2 * margin - 35 },
-    },
+  0: {
+    cellWidth: 35,
+    fontStyle: 'bold',
+  },
+  1: {
+    cellWidth: 45,
+  },
+},
     body: infoRows,
   });
 
@@ -192,21 +196,28 @@ export function generateCompanyPDF(report: CompanyReport): ExtendedjsPDF {
       startY: currentY,
       margin: { left: margin, right: margin },
       theme: 'striped',
-      headStyles: {
-        fillColor: primaryDark,
-        textColor: [255, 255, 255],
-        fontSize: 9,
-        fontStyle: 'bold',
-      },
-      bodyStyles: {
-        fontSize: 8.5,
-        textColor: textDark,
-      },
-      columnStyles: {
-        0: { width: 35, fontStyle: 'bold' },
-        1: { width: 45 },
-        2: { width: pageWidth - 2 * margin - 80 },
-      },
+     headStyles: {
+  fillColor: [15,23,42],
+  textColor: [255,255,255],
+  fontSize:9,
+  fontStyle:'bold'
+},
+      bodyStyles:{
+    fontSize:8.5,
+    textColor:[51,65,85],
+},
+     columnStyles:{
+  0:{
+      cellWidth:35,
+      fontStyle:'bold'
+  },
+  1:{
+      cellWidth:45
+  },
+  2:{
+      cellWidth:'auto'
+  }
+},
       head: competitorHeaders,
       body: competitorRows,
     });
