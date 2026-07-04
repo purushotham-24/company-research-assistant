@@ -21,10 +21,10 @@ export function generateCompanyPDF(report: CompanyReport): ExtendedjsPDF {
   const margin = 20;
 
   // Primary Theme Colors
-  const primaryDark = [15, 23, 42]; // Slate 900
-  const goldAccent = [226, 168, 45]; // Gold/Amber #e2a82d
-  const textDark = [51, 65, 85]; // Slate 700
-  const bgLight = [248, 250, 252]; // Slate 50
+  const primaryDark: [number, number, number] = [15, 23, 42];
+  const goldAccent: [number, number, number] = [226, 168, 45];
+  const textDark: [number, number, number] = [51, 65, 85];
+  const bgLight: [number, number, number] = [248, 250, 252]; // Slate 50
 
   // 1. Header Banner (Dark Theme)
   doc.setFillColor(primaryDark[0], primaryDark[1], primaryDark[2]);
