@@ -1,4 +1,4 @@
-# AI Company Research Assistant 📊🤖
+# AI Company Research Assistant 
 
 A production-ready, high-performance web application designed to research companies by name or website URL. It crawls company websites, scans internet sources via Serper.dev, runs advanced AI reasoning via OpenRouter, discovers competitors, renders findings in a sleek ChatGPT-style dark mode interface, compiles details into a professional PDF, and automatically uploads the report to a Discord channel.
 
